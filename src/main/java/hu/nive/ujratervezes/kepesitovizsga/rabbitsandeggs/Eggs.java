@@ -1,6 +1,7 @@
 package hu.nive.ujratervezes.kepesitovizsga.rabbitsandeggs;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -31,5 +32,18 @@ public class Eggs {
         return rabbits.stream()
                 .max(Comparator.comparing(Rabbit::getEggs))
                 .orElseThrow(() -> new IllegalArgumentException("error"));
+    }
+
+    public void writeFile() {
+        try (BufferedWriter bw = Files.newBufferedWriter(Path.of("src/main/resources/out.txt"))) {
+            for (Rabbit item : rabbits) {
+                bw.write(item.getName() + " " + item.getEggs() + "\n");
+            }
+            bw.write("Legtöbbet dolgozó nyuszi nevét és a tojások száma:" + "\n");
+            Rabbit r = getRabbitWithMaxEggs();
+            bw.write(r.getName() + " " + r.getEggs() + "\n");
+        } catch (IOException e) {
+            throw new IllegalStateException("Can't write file", e);
+        }
     }
 }

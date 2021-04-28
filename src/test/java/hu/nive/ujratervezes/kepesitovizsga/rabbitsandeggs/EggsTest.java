@@ -11,5 +11,6 @@ public class EggsTest {
 
         Assertions.assertEquals("Nyunyi", rabbit.getName());
         Assertions.assertEquals(32, rabbit.getEggs());
+        new Eggs().writeFile();
     }
 }

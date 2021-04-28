@@ -1,0 +1,10 @@
+Muszó 17
+Nyunyi 32
+Mimi 21
+Munyi 18
+Nyami 23
+Mesi 20
+Susi 13
+Simi 27
+Legtöbbet dolgozó nyuszi nevét és a tojások száma:
+Nyunyi 32
